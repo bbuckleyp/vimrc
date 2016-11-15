@@ -12,14 +12,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 "Plugin 'valloric/youcompleteme'
 Plugin 'bling/vim-airline'
 
 
 " All plugins must be added before the following line
 call vundle#end()
-filetype plugin indent on
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -62,26 +61,37 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""" VIM SETTINGS """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set showcmd
-set showmode
-set backspace=indent,eol,start
+set showcmd                     " show partial commands in status line and Selected characters/lines in visual mode
+set showmode                    " show current mode (insert/visual)
+set showmatch                   " shows matching bracket/parenthesis
+set backspace=indent,eol,start  " set backspace for dummies
 set title
-set autowrite
+set autowrite                   " automatically write a file when leaving a modified buffer 
+set autoread                    " automatically read a file changed outside of vim
 set number
 set hidden
 set history=100
-set nowrap
-set tabstop=4
-set shiftwidth=4
+set nowrap                      " do not wrap long lines
+set tabstop=4                   " an indention every 4 columns
+set shiftwidth=4                " use indents of 4 spaces
 set expandtab
-set autoindent
-set smartindent
-set hlsearch
-set showmatch
+set smarttab                    " sets smarttab
+set softtabstop=4               " let backspace delete indent
+set autoindent                  " indents at the same line as above
+set incsearch                   " find as you type search
+set hlsearch                    " highlights search words
+set ignorecase                  " ignores case during search
 set vb
-set hidden
-set ruler
-set incsearch
+set hidden                      " allow buffer switching without saving
+set ruler                       " show the ruler
+set scrolljump=5                " jumps 5 lines when cursor goes off the screen
+set scrolloff=3                 " always stays 3 lines off the screen 
+set splitright                  " vertical split (vs) adds new window to the right
+set splitbelow                  " horizonal split (hz) adds new window below
+set mousehide                   " automatically hides the mouse cursor when starting to type
+set t_Co=256                    " Use 256 Colors
+"set linespace=0                 " number of pixels between lines
+filetype plugin indent on "automatically detect filetype
 
 " Set high undo levels
 set undolevels=1000
@@ -112,7 +122,7 @@ nnoremap q <nop>
 "Tab shortcuts
 nnoremap <C-j> :bn<cr>
 nnoremap <C-k> :bp<cr>
-nnoremap <C-i> :bn<cr>:bd#<cr>
+"nnoremap <C-i> :bn<cr>:bd#<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""" KEY BINDINGS """"""""""""""""""""""""""""""""""""""""""""""""""""""""
